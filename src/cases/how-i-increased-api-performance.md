@@ -10,7 +10,7 @@ But I need a justified data to actually build a thesis for this problem. So I do
 
 Now I know what time range I need to explore to the database. What shocked me is, from those 21 days time range, I only found about 4,800 records of data, which is not small, but shouldn't be particulary difficult for the database to handle. 
 
-Well, let's test the enpoint locally. Let's see how much it really takes to fetch those 4,800 records. One minutes passed.., two minutes passed.. three minutes passed.., "Might as well grab a coffe while I wait", Ten minutes passed by.. Well, at this point the client should just find another vendor instead of wating, haha.
+Well, let's test the enpoint locally. Let's see how much it really takes to fetch those 4,800 records. One minutes passed.., two minutes passed.. three minutes passed.., "Might as well grab a coffee while I wait", ten minutes passed by.. Well, at this point the client should just find another vendor instead of waiting, haha.
 
 I do the obvious thing here, narrow the time range even more, let's see how a two-day range performs, and you know what I found?
 
@@ -48,7 +48,16 @@ Now, it's getting more obvious which process took the most time let's see what k
 ```javascript
 const matchStage = [
   {
-    $match: searchOrder,
+    $match: {
+      deleted_at: null,
+        grand_total: { $gt: 0 },
+        xendit: { $exists: true, $ne: null },
+        created_at: {
+          $gte: new Date("2026-04-01T00:00:00.000Z"),
+          $lte: new Date("2026-04-21T23:59:59.999Z")
+        }
+      }
+    },,
   },
   {
     $lookup: {
