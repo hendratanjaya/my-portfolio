@@ -16,7 +16,7 @@ function Home() {
           className="w-28 h-28 rounded-full object-cover ring-2 ring-zinc-700 ring-offset-4 ring-offset-zinc-900"
         />
         <div className="space-y-1">
-          <h1 className="text-2xl font-bold text-zinc-100">Hendra Tanuwijaya</h1>
+          <h1 className="text-2xl font-bold text-zinc-100">Hendra Tanu Wijaya</h1>
           <p className="text-sm text-zinc-500 tracking-wide">Pragmatic Software Engineer (wannabe)</p>
           <div className="pt-1 flex items-center justify-center gap-2 text-sm text-zinc-600">
             <a
