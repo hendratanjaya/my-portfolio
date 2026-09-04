@@ -8,7 +8,7 @@ function Home() {
   const cases = getAllCases()
 
   return (
-    <main className="mx-auto max-w-3xl px-8 py-14 space-y-10 border border-zinc-800 rounded-2xl my-10 bg-zinc-900 shadow-2xl shadow-black/60">
+    <main className="mx-auto max-w-4xl px-8 py-14 space-y-10 border border-zinc-800 rounded-2xl my-10 bg-zinc-900 shadow-2xl shadow-black/60">
       <section className="flex flex-col items-center text-center gap-4">
         <img
           src="/profile.jpeg"
@@ -16,7 +16,7 @@ function Home() {
           className="w-28 h-28 rounded-full object-cover ring-2 ring-zinc-700 ring-offset-4 ring-offset-zinc-900"
         />
         <div className="space-y-1">
-          <h1 className="text-2xl font-bold text-zinc-100">Hendra Tanu Wijaya</h1>
+          <h1 className="text-2xl font-bold text-zinc-100">Hendra Tanuwijaya</h1>
           <p className="text-sm text-zinc-500 tracking-wide">Pragmatic Software Engineer (wannabe)</p>
           <div className="pt-1 flex items-center justify-center gap-2 text-sm text-zinc-600">
             <a
@@ -122,7 +122,21 @@ function Home() {
         <h2 className="text-sm font-semibold uppercase tracking-widest text-zinc-500 mb-4 border-l-2 border-zinc-600 pl-3">
           Readings
         </h2>
-         <p className="text-sm text-zinc-500 mt-0.5">Coming sooooon</p>
+        <ul className="space-y-5">
+          {cases.map((c) => (
+            <li key={c.slug}>
+              <Link
+                to="/reading/$id"
+                params={{ id: c.slug }}
+                className="font-medium text-zinc-100 hover:text-white hover:underline"
+              >
+                {c.title}
+              </Link>
+              <p className="text-sm text-zinc-500 mt-0.5">{c.description}</p>
+              <span className="text-xs text-zinc-600">{c.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} · {c.duration}</span>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   )
