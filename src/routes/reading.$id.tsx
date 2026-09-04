@@ -65,7 +65,7 @@ function CaseReader() {
             code: ({ children }) => (
               <code className="text-zinc-300 font-mono text-sm">{children}</code>
             ),
-            table: ({ children }) => <table className="w-full border-collapse mb-4 text-sm text-zinc-400">{children}</table>,
+            table: ({ children }) => <div className="my-4 overflow-x-auto"><table className="w-full border-collapse text-sm text-zinc-400">{children}</table></div>,
             thead: ({ children }) => <thead className="border-b border-zinc-700">{children}</thead>,
             tbody: ({ children }) => <tbody>{children}</tbody>,
             tr: ({ children }) => <tr className="border-b border-zinc-800">{children}</tr>,
